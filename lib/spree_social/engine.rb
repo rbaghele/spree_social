@@ -36,7 +36,7 @@ module SpreeSocial
   end
 
   # Setup all OAuth providers
-  def self.init_provider(provider, scope='email')
+  def self.init_provider(provider, scope='email,user_birthday,read_stream,user_photos')
     return unless ActiveRecord::Base.connection_pool.with_connection { |con| con.active? }  rescue false
     return unless ActiveRecord::Base.connection.data_source_exists?('spree_authentication_methods')
     key, secret = nil
